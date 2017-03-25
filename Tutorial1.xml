@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/Users/carl/Documents/KiCad/KiCad/Tutorial1.sch</source>
+    <date>Friday, March 24, 2017 'PMt' 04:56:23 PM</date>
+    <tool>Eeschema 4.0.5</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Tutorial 1</title>
+        <company/>
+        <rev/>
+        <date/>
+        <source>Tutorial1.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="R2">
+      <value>1K</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58B0CE48</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>100</value>
+      <footprint>Resistors_SMD:R_0805</footprint>
+      <libsource lib="device" part="R"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58B0CED0</tstamp>
+    </comp>
+    <comp ref="IC1">
+      <value>PIC12C508A-I/SN</value>
+      <footprint>Housings_DIP:DIP-8_W7.62mm</footprint>
+      <libsource lib="microchip_pic12mcu" part="PIC12C508A-I/SN"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58B0D068</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>LED</value>
+      <footprint>LEDs:LED_D5.0mm</footprint>
+      <libsource lib="device" part="LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58B0D13A</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>MYCONN3</value>
+      <footprint>Connect:Banana_Jack_3Pin</footprint>
+      <libsource lib="myLib" part="MYCONN3"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>58B0D45C</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="device" part="LED">
+      <description>LED generic</description>
+      <footprints>
+        <fp>LED*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="myLib" part="MYCONN3">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">MYCONN3</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Vcc" type="passive"/>
+        <pin num="2" name="Input" type="passive"/>
+        <pin num="3" name="Gnd" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="microchip_pic12mcu" part="PIC12C508A-I/P">
+      <aliases>
+        <alias>PIC12C508A-I/SN</alias>
+        <alias>PIC12C508A-I/SM</alias>
+        <alias>PIC12C508A-I/JW</alias>
+      </aliases>
+      <description>512W EPROM, 25B SRAM, PDIP8</description>
+      <docs>http://ww1.microchip.com/downloads/en/devicedoc/40139e.pdf</docs>
+      <fields>
+        <field name="Reference">IC</field>
+        <field name="Value">PIC12C508A-I/P</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VDD" type="power_in"/>
+        <pin num="2" name="CLKIN/OSC1/GP5" type="BiDi"/>
+        <pin num="3" name="OSC2/GP4" type="BiDi"/>
+        <pin num="4" name="Vpp/~MCLR~/GP3" type="input"/>
+        <pin num="5" name="T0CKI/GP2" type="BiDi"/>
+        <pin num="6" name="ICSPCLK/GP1" type="BiDi"/>
+        <pin num="7" name="ICSPDAT/GP0" type="BiDi"/>
+        <pin num="8" name="VSS" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="device" part="R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+        <fp>Resistor_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="microchip_pic12mcu">
+      <uri>/Library/Application Support/kicad/library/microchip_pic12mcu.lib</uri>
+    </library>
+    <library logical="myLib">
+      <uri>/Users/carl/Documents/KiCad/KiCad/library/myLib.lib</uri>
+    </library>
+    <library logical="device">
+      <uri>/Library/Application Support/kicad/library/device.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/INPUTtoR">
+      <node ref="J1" pin="2"/>
+      <node ref="R1" pin="2"/>
+    </net>
+    <net code="2" name="GND">
+      <node ref="J1" pin="3"/>
+      <node ref="IC1" pin="8"/>
+    </net>
+    <net code="3" name="/INPUT">
+      <node ref="IC1" pin="6"/>
+      <node ref="R1" pin="1"/>
+    </net>
+    <net code="4" name="Net-(IC1-Pad5)">
+      <node ref="IC1" pin="5"/>
+    </net>
+    <net code="5" name="Net-(IC1-Pad4)">
+      <node ref="IC1" pin="4"/>
+    </net>
+    <net code="6" name="Net-(IC1-Pad3)">
+      <node ref="IC1" pin="3"/>
+    </net>
+    <net code="7" name="Net-(IC1-Pad2)">
+      <node ref="IC1" pin="2"/>
+    </net>
+    <net code="8" name="VCC">
+      <node ref="J1" pin="1"/>
+      <node ref="R2" pin="2"/>
+      <node ref="IC1" pin="1"/>
+    </net>
+    <net code="10" name="/LEDtoR">
+      <node ref="R2" pin="1"/>
+    </net>
+    <net code="11" name="/uCtoLED">
+      <node ref="IC1" pin="7"/>
+    </net>
+    <net code="12" name="Net-(D1-Pad1)">
+      <node ref="D1" pin="1"/>
+    </net>
+    <net code="13" name="Net-(D1-Pad2)">
+      <node ref="D1" pin="2"/>
+    </net>
+  </nets>
+</export>
